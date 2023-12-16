@@ -130,7 +130,7 @@ export default function TextForm(props) {
       <br></br>
       <div style={{minHeight: '100vh', position: 'absolute'}}/>
       <footer style={{ textAlign: 'center', position:'fixed', bottom: '0', left: '0', right: '0', width: '100%', padding: '10px', color: props.mode === 'dark' ? 'white' : '#00457d', backgroundColor: props.mode === 'dark' ? 'rgba(0, 69, 125, 0.5)' : 'rgba(151, 144, 144, 0.5)' }}>
-        Made with ❤️️ by Syed Omar ALbeez
+        Made with ❤️️ by Syed Omar Albeez
       </footer>
     </div>
     </>
