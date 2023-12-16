@@ -39,8 +39,8 @@ export default function TextForm(props) {
     function capitalize(str) {
       return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
     }
-    const upper = text.split(' ').map(capitalize).join(' ');
-    setText(upper)
+    const upper = text.split('\n').map(line => line.split(' ').map(capitalize).join(' ')).join('\n');
+    setText(upper);
     localStorage.setItem(1,text);
     props.showAlert(" Converted to Capitalized Case","success");
   };
@@ -87,9 +87,10 @@ export default function TextForm(props) {
   }
 
   const handleCopy = () =>{
-    var text = document.getElementById("myBox");
-    text.select();
-    navigator.clipboard.writeText(text.value);
+    // var text = document.getElementById("myBox");
+    // text.select();
+    navigator.clipboard.writeText(text);
+    // document.getSelection().removeAllRanges();
     props.showAlert(" Copied to Clipboard","success");
   }
 
@@ -115,14 +116,14 @@ export default function TextForm(props) {
         <button disabled={text.length===0} className="btn btn-dark mx-1 my-1" onClick={handleCapitalizeWordClick} style={{borderColor:'white'}}>Captilize Words</button>
         <button disabled={text.length===0} className="btn btn-dark mx-1 my-1" onClick={textToSpeech} style={{borderColor:'white'}}>Read Out</button>
         <button disabled={text.length===0} className="btn btn-dark mx-1 my-1" onClick={reversed} style={{borderColor:'white'}}>Reverse Text</button>
-        <button disabled={text.length===0} className="btn btn-dark mx-1 my-1" onClick={handleLightTheme} style={{borderColor:'white'}}>Light Theme</button>
-        <button disabled={text.length===0} className="btn btn-dark mx-1 my-1" onClick={handleDarkTheme} style={{borderColor:'white'}}>Dark Theme</button>
         <button disabled={text.length===0} className="btn btn-dark mx-1 my-1" onClick={handleCopy} style={{borderColor:'white'}}>Copy Text</button>
         <button disabled={text.length===0} className="btn btn-dark mx-1 my-1" onClick={handleExtraSpaces} style={{borderColor:'white'}}>Remove extra Space</button>
+        <button disabled={text.length===0} className="btn btn-dark mx-1 my-1" onClick={handleLightTheme} style={{borderColor:'white'}}>Light Theme TextArea</button>
+        <button disabled={text.length===0} className="btn btn-dark mx-1 my-1" onClick={handleDarkTheme} style={{borderColor:'white'}}>Dark Theme TextArea</button>
     </div>
     <div className='container my-3' style={{color: props.mode==='dark'?'white':'#042743'}}>
       <h1>Your text summary</h1>
-      <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} Words and {text.length} Characters</p>
+      <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Words and {text.length} Characters</p>
       <p>{0.008*text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes to Read</p>
       <h2>Preview</h2>
       <p>{text.length>0?text:"Nothing to Preview!"}</p>

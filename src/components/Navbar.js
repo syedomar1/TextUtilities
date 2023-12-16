@@ -24,8 +24,8 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              {/* <a className="nav-link active" aria-current="page" href="#"> */}
-              <Link className="nav-link active" aria-current="page" to="/">
+              {/* <a className="nav-link" aria-current="page" href="#"> */}
+              <Link className="nav-link" aria-current="page" to="/">
                 Home
               </Link>
             </li>
@@ -36,7 +36,7 @@ export default function Navbar(props) {
               </Link>
             </li>
           </ul>
-          <div className="d-flex">
+          {/* <div className="d-flex">
             <div className="bg-primary rounded mx-2" onClick={()=>{props.toggleMode('primary')}} style={{height:'30px',width:'30px', cursor:'pointer'}}>
             </div>
             <div className="bg-danger rounded mx-2" onClick={()=>{props.toggleMode('danger')}} style={{height:'30px',width:'30px', cursor:'pointer'}}>
@@ -49,7 +49,7 @@ export default function Navbar(props) {
             </div>
             <div className="bg-dark rounded mx-2" onClick={()=>{props.toggleMode('dark')}} style={{height:'30px',width:'30px', cursor:'pointer'}}>
             </div>
-          </div>
+          </div> */}
           {/* <form className="d-flex" role="search">
             <input
               className="form-control me-2"
