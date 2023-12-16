@@ -104,9 +104,9 @@ export default function TextForm(props) {
   return (  
     <>
     <div className='container' style={{color: props.mode==='dark'?'white':'#042743'}}>
-        <h1 className='mb-4'>{props.heading}</h1>
+        <h2 className='mb-4'>{props.heading}</h2>
         <div className="mb-3">
-        {/* <label for="myBox" class="form-label">Example Text Area</label> */}
+        {/* <label for="myBox" className="form-label">Example Text Area</label> */}
         <textarea className="form-control2" value = {text} onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'#00457d':'white', color: props.mode==='dark'?'white':'#042743', width:'100%'}} id="myBox" rows="8"></textarea>
         </div>
         <button disabled={text.length===0} className="btn btn-dark mx-1 my-1" onClick={handleUpClick} style={{borderColor:'white'}}>Convert to Uppercase</button>
@@ -122,11 +122,16 @@ export default function TextForm(props) {
         <button disabled={text.length===0} className="btn btn-dark mx-1 my-1" onClick={handleDarkTheme} style={{borderColor:'white'}}>Dark Theme TextArea</button>
     </div>
     <div className='container my-3' style={{color: props.mode==='dark'?'white':'#042743'}}>
-      <h1>Your text summary</h1>
+      <h2>Your text summary</h2>
       <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Words and {text.length} Characters</p>
       <p>{0.008*text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes to Read</p>
       <h2>Preview</h2>
       <p>{text.length>0?text:"Nothing to Preview!"}</p>
+      <br></br>
+      <div style={{minHeight: '100vh', position: 'absolute'}}/>
+      <footer style={{ textAlign: 'center', position:'fixed', bottom: '0', left: '0', right: '0', width: '100%', padding: '10px', color: props.mode === 'dark' ? 'white' : '#00457d', backgroundColor: props.mode === 'dark' ? 'rgba(0, 69, 125, 0.5)' : 'rgba(151, 144, 144, 0.5)' }}>
+        Made with ❤️️ by Syed Omar ALbeez
+      </footer>
     </div>
     </>
   )
