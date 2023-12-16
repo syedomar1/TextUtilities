@@ -66,7 +66,7 @@ export default function TextForm(props) {
     let newText = joinedWords
     setText(newText);
     localStorage.setItem(1,text);
-    props.showAlert(" Text has beem Reversed","success");
+    props.showAlert(" Text has been Reversed","success");
   };
 
   const handleExtraSpaces =()=>{
